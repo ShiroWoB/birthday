@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            text-align: center;
+            background: url('420989625_1097010288162956_5146357421293900123_n.jpg') repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInDown 2s ease-in-out;
+        }
+        h1 {
+            color: #2d10a0;
+            font-size: 3em;
+            margin: 0 10px;
+        }
+        .title-container img {
+            width: 100px;
+            height: auto;
+            margin-left: 20px;
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        .cake-image {
+            max-width: 60%;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 2s ease-in-out;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #ff6347;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .button:hover {
+            background-color: #ff4500;
+            transform: translateY(-5px);
+        }
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1>Chúc Mừng Sinh Nhật!</h1>
+        <img src="436444238_1653776912113370_2029786885506669532_n.jpg" width="10" height="10" alt="Estra">
+    </div>
+    <p class="message">Chúc bạn Estra một ngày sinh nhật thật vui vẻ và ý nghĩa! Hy vọng mọi điều tốt đẹp nhất sẽ đến với bạn trong năm nay. Cố gắng học tập trở thành bác sĩ tương lai!</p>
+    <img src="tb3e.jpg" width="200" height="300" alt="Bánh sinh nhật" class="cake-image">
+    <br>
+    <a href="#" class="button" onclick="startConfetti()">Chúc mừng!</a>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function startConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const myConfetti = confetti.create(canvas, {
+                resize: true,
+                useWorker: true
+            });
+            
+            myConfetti({
+                particleCount: 200,
+                spread: 160,
+                origin: { y: 0.6 }
+            });
+
+            // Dừng pháo hoa sau 5 giây
+            setTimeout(() => {
+                canvas.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
